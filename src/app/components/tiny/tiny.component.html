@@ -1,0 +1,36 @@
+<div class="tiny-post container mt-5">
+  <div>
+    <div>
+      <div *ngFor="let doc of descriptionList">
+        <div
+          [innerHTML]="sanitizer.bypassSecurityTrustHtml(this.doc.description)"
+          class="card p-2 mb-2"
+        ></div>
+      </div>
+    </div>
+  </div>
+  <form action="" class="form" [formGroup]="descriptionForm">
+    <editor
+      apiKey="n7pfaoaohcbwy7a9mx50fyuyzxbhxki2qt1qzi6wvho2gwd5"
+      [init]="{
+        selector: 'textarea',
+        inline_styles: true,
+        height: 500,
+        menubar: false,
+        them: 'silver',
+        plugins: 'lists advlist',
+        toolbar:
+          'insertfile link image undo redo  fontsize underline formatselect bold italic forecolor \
+          alignleft aligncenter alignright alignjustify \
+          bullist numlist outdent indent  ',
+        content_style: 'body { font-size: 14pt; font-family: Arial; }'
+      }"
+      formControlName="description"
+    ></editor>
+    <p class="text-success">{{ postReplayMessage }}</p>
+
+    <button type="submit" class="btn btn-success btn-lg" (click)="send()">
+      Save
+    </button>
+  </form>
+</div>

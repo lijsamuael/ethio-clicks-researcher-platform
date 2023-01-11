@@ -8,12 +8,13 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
+import { TinyComponent } from './components/tiny/tiny.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent, TinyComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -22,9 +23,11 @@ import { environment } from '../environments/environment';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
-
+    EditorModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
